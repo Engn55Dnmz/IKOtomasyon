@@ -1,0 +1,2073 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IKEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Araclar">
+          <Key>
+            <PropertyRef Name="AracID" />
+          </Key>
+          <Property Name="AracID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Plaka" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="ModelID" Type="int" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="AracMarka">
+          <Key>
+            <PropertyRef Name="MarkaID" />
+          </Key>
+          <Property Name="MarkaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="AracModel">
+          <Key>
+            <PropertyRef Name="ModelID" />
+          </Key>
+          <Property Name="ModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="MarkaID" Type="int" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="AracPersonel">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="AldigiTarih" Type="date" />
+          <Property Name="BiraktigiTarih" Type="date" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Birim_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BirimAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="BirimIslem">
+          <Key>
+            <PropertyRef Name="BirimID" />
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="BirimID" Type="int" Nullable="false" />
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FakulteID" Type="int" />
+          <Property Name="BolumAdi" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Departman_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmanAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="DepartmanIslem">
+          <Key>
+            <PropertyRef Name="DerpartmanID" />
+            <PropertyRef Name="BirimID" />
+          </Key>
+          <Property Name="DerpartmanID" Type="int" Nullable="false" />
+          <Property Name="BirimID" Type="int" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Fakulte">
+          <Key>
+            <PropertyRef Name="FakulteID" />
+          </Key>
+          <Property Name="FakulteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OkulID" Type="int" />
+          <Property Name="FakulteAdi" Type="nvarchar" MaxLength="250" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Ilce_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlceAdi" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="SehirID" Type="int" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="IzinTur">
+          <Key>
+            <PropertyRef Name="IzinTurID" />
+          </Key>
+          <Property Name="IzinTurID" Type="int" Nullable="false" />
+          <Property Name="IzinTuru" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AdminMi" Type="bit" Nullable="false" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="KullaniciSifre">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Maas_T">
+          <Key>
+            <PropertyRef Name="MaasID" />
+          </Key>
+          <Property Name="MaasID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaasTutari" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="MaasIslem">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="MaasID" Type="int" Nullable="false" />
+          <Property Name="MaasTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="Okul">
+          <Key>
+            <PropertyRef Name="OkulID" />
+          </Key>
+          <Property Name="OkulID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OkulAdi" Type="nvarchar" MaxLength="250" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="30" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="TCNo" Type="char" MaxLength="11" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="PersonelEgitim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="BolumID" Type="int" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="PersonelGirisCikis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="IseBaslamaTarihi" Type="date" />
+          <Property Name="IstenCikmaTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="PersonelIletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="CepTel" Type="char" MaxLength="10" />
+          <Property Name="EvTel" Type="char" MaxLength="10" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="250" />
+          <Property Name="SemtID" Type="int" />
+          <Property Name="AcikAdres" Type="nvarchar(max)" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="PersonelIzin">
+          <Key>
+            <PropertyRef Name="PersonelIzinID" />
+          </Key>
+          <Property Name="PersonelIzinID" Type="int" Nullable="false" />
+          <Property Name="IzinTurID" Type="int" Nullable="false" />
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="IzinBasTarihi" Type="date" />
+          <Property Name="IzinBitisTarihi" Type="date" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="PrimCesidi">
+          <Key>
+            <PropertyRef Name="PrimID" />
+          </Key>
+          <Property Name="PrimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrimCesidi" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="PrimIslem">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="PrimID" Type="int" Nullable="false" />
+          <Property Name="PrimTutari" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="PrimTarihi" Type="date" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sehir_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SehirAdi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Semt_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SemtAdi" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IlceID" Type="int" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Unvan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnvanAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnvanIslem">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+            <PropertyRef Name="UnvanID" />
+          </Key>
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="UnvanID" Type="int" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Yetki_T">
+          <Key>
+            <PropertyRef Name="YetkiID" />
+          </Key>
+          <Property Name="YetkiID" Type="int" Nullable="false" />
+          <Property Name="YetkiAdi" Type="nvarchar" MaxLength="500" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="YetkiIslem">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+            <PropertyRef Name="YetkiID" />
+          </Key>
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="YetkiID" Type="int" Nullable="false" />
+          <Property Name="AktifMi" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Araclar_AracModel">
+          <End Role="AracModel" Type="Self.AracModel" Multiplicity="1" />
+          <End Role="Araclar" Type="Self.Araclar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracModel">
+              <PropertyRef Name="ModelID" />
+            </Principal>
+            <Dependent Role="Araclar">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracModel_AracMarka">
+          <End Role="AracMarka" Type="Self.AracMarka" Multiplicity="1" />
+          <End Role="AracModel" Type="Self.AracModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracMarka">
+              <PropertyRef Name="MarkaID" />
+            </Principal>
+            <Dependent Role="AracModel">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracPersonel_Araclar">
+          <End Role="Araclar" Type="Self.Araclar" Multiplicity="1" />
+          <End Role="AracPersonel" Type="Self.AracPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Araclar">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="AracPersonel">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracPersonel_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="AracPersonel" Type="Self.AracPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AracPersonel">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BirimIslem_Birim_T">
+          <End Role="Birim_T" Type="Self.Birim_T" Multiplicity="1" />
+          <End Role="BirimIslem" Type="Self.BirimIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Birim_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BirimIslem">
+              <PropertyRef Name="BirimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BirimIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="BirimIslem" Type="Self.BirimIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BirimIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bolum_Fakulte">
+          <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="0..1" />
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fakulte">
+              <PropertyRef Name="FakulteID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmanIslem_Birim_T">
+          <End Role="Birim_T" Type="Self.Birim_T" Multiplicity="1" />
+          <End Role="DepartmanIslem" Type="Self.DepartmanIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Birim_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DepartmanIslem">
+              <PropertyRef Name="BirimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmanIslem_Departman_T">
+          <End Role="Departman_T" Type="Self.Departman_T" Multiplicity="1" />
+          <End Role="DepartmanIslem" Type="Self.DepartmanIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DepartmanIslem">
+              <PropertyRef Name="DerpartmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fakulte_Okul">
+          <End Role="Okul" Type="Self.Okul" Multiplicity="0..1" />
+          <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Okul">
+              <PropertyRef Name="OkulID" />
+            </Principal>
+            <Dependent Role="Fakulte">
+              <PropertyRef Name="OkulID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ilce_T_Sehir_T">
+          <End Role="Sehir_T" Type="Self.Sehir_T" Multiplicity="1" />
+          <End Role="Ilce_T" Type="Self.Ilce_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehir_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ilce_T">
+              <PropertyRef Name="SehirID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="0..1" />
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KullaniciSifre_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="KullaniciSifre" Type="Self.KullaniciSifre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="KullaniciSifre">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaasIslem_Maas_T">
+          <End Role="Maas_T" Type="Self.Maas_T" Multiplicity="1" />
+          <End Role="MaasIslem" Type="Self.MaasIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maas_T">
+              <PropertyRef Name="MaasID" />
+            </Principal>
+            <Dependent Role="MaasIslem">
+              <PropertyRef Name="MaasID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaasIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="MaasIslem" Type="Self.MaasIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MaasIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelEgitim_Bolum">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+          <End Role="PersonelEgitim" Type="Self.PersonelEgitim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="PersonelEgitim">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelEgitim_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="0..1" />
+          <End Role="PersonelEgitim" Type="Self.PersonelEgitim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelEgitim">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelGirisCikis_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="PersonelGirisCikis" Type="Self.PersonelGirisCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelGirisCikis">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelIletisim_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="PersonelIletisim" Type="Self.PersonelIletisim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelIletisim">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelIletisim_Semt_T">
+          <End Role="Semt_T" Type="Self.Semt_T" Multiplicity="0..1" />
+          <End Role="PersonelIletisim" Type="Self.PersonelIletisim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semt_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelIletisim">
+              <PropertyRef Name="SemtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelIzin_IzinTur">
+          <End Role="IzinTur" Type="Self.IzinTur" Multiplicity="1" />
+          <End Role="PersonelIzin" Type="Self.PersonelIzin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IzinTur">
+              <PropertyRef Name="IzinTurID" />
+            </Principal>
+            <Dependent Role="PersonelIzin">
+              <PropertyRef Name="IzinTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelIzin_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="PersonelIzin" Type="Self.PersonelIzin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelIzin">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrimIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="PrimIslem" Type="Self.PrimIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PrimIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrimIslem_PrimCesidi">
+          <End Role="PrimCesidi" Type="Self.PrimCesidi" Multiplicity="1" />
+          <End Role="PrimIslem" Type="Self.PrimIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrimCesidi">
+              <PropertyRef Name="PrimID" />
+            </Principal>
+            <Dependent Role="PrimIslem">
+              <PropertyRef Name="PrimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Semt_T_Ilce_T">
+          <End Role="Ilce_T" Type="Self.Ilce_T" Multiplicity="1" />
+          <End Role="Semt_T" Type="Self.Semt_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilce_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Semt_T">
+              <PropertyRef Name="IlceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnvanIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="UnvanIslem" Type="Self.UnvanIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UnvanIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnvanIslem_Unvan">
+          <End Role="Unvan" Type="Self.Unvan" Multiplicity="1" />
+          <End Role="UnvanIslem" Type="Self.UnvanIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unvan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UnvanIslem">
+              <PropertyRef Name="UnvanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YetkiIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="YetkiIslem" Type="Self.YetkiIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="YetkiIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YetkiIslem_Yetki_T">
+          <End Role="Yetki_T" Type="Self.Yetki_T" Multiplicity="1" />
+          <End Role="YetkiIslem" Type="Self.YetkiIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yetki_T">
+              <PropertyRef Name="YetkiID" />
+            </Principal>
+            <Dependent Role="YetkiIslem">
+              <PropertyRef Name="YetkiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_PersonelEkle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Adi" Type="nvarchar" Mode="In" />
+          <Parameter Name="Soyadi" Type="nvarchar" Mode="In" />
+          <Parameter Name="TCNO" Type="nvarchar" Mode="In" />
+          <Parameter Name="IseBaslamaTarihi" Type="date" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="IKEntitiesStoreContainer">
+          <EntitySet Name="Araclar" EntityType="Self.Araclar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracMarka" EntityType="Self.AracMarka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracModel" EntityType="Self.AracModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracPersonel" EntityType="Self.AracPersonel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Birim_T" EntityType="Self.Birim_T" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BirimIslem" EntityType="Self.BirimIslem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departman_T" EntityType="Self.Departman_T" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartmanIslem" EntityType="Self.DepartmanIslem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fakulte" EntityType="Self.Fakulte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ilce_T" EntityType="Self.Ilce_T" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IzinTur" EntityType="Self.IzinTur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciSifre" EntityType="Self.KullaniciSifre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Maas_T" EntityType="Self.Maas_T" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaasIslem" EntityType="Self.MaasIslem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Okul" EntityType="Self.Okul" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelEgitim" EntityType="Self.PersonelEgitim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelGirisCikis" EntityType="Self.PersonelGirisCikis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelIletisim" EntityType="Self.PersonelIletisim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelIzin" EntityType="Self.PersonelIzin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrimCesidi" EntityType="Self.PrimCesidi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrimIslem" EntityType="Self.PrimIslem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sehir_T" EntityType="Self.Sehir_T" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semt_T" EntityType="Self.Semt_T" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unvan" EntityType="Self.Unvan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnvanIslem" EntityType="Self.UnvanIslem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yetki_T" EntityType="Self.Yetki_T" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YetkiIslem" EntityType="Self.YetkiIslem" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Araclar_AracModel" Association="Self.FK_Araclar_AracModel">
+            <End Role="AracModel" EntitySet="AracModel" />
+            <End Role="Araclar" EntitySet="Araclar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracModel_AracMarka" Association="Self.FK_AracModel_AracMarka">
+            <End Role="AracMarka" EntitySet="AracMarka" />
+            <End Role="AracModel" EntitySet="AracModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracPersonel_Araclar" Association="Self.FK_AracPersonel_Araclar">
+            <End Role="Araclar" EntitySet="Araclar" />
+            <End Role="AracPersonel" EntitySet="AracPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracPersonel_Personel" Association="Self.FK_AracPersonel_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="AracPersonel" EntitySet="AracPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BirimIslem_Birim_T" Association="Self.FK_BirimIslem_Birim_T">
+            <End Role="Birim_T" EntitySet="Birim_T" />
+            <End Role="BirimIslem" EntitySet="BirimIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BirimIslem_Personel" Association="Self.FK_BirimIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="BirimIslem" EntitySet="BirimIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bolum_Fakulte" Association="Self.FK_Bolum_Fakulte">
+            <End Role="Fakulte" EntitySet="Fakulte" />
+            <End Role="Bolum" EntitySet="Bolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmanIslem_Birim_T" Association="Self.FK_DepartmanIslem_Birim_T">
+            <End Role="Birim_T" EntitySet="Birim_T" />
+            <End Role="DepartmanIslem" EntitySet="DepartmanIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmanIslem_Departman_T" Association="Self.FK_DepartmanIslem_Departman_T">
+            <End Role="Departman_T" EntitySet="Departman_T" />
+            <End Role="DepartmanIslem" EntitySet="DepartmanIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fakulte_Okul" Association="Self.FK_Fakulte_Okul">
+            <End Role="Okul" EntitySet="Okul" />
+            <End Role="Fakulte" EntitySet="Fakulte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ilce_T_Sehir_T" Association="Self.FK_Ilce_T_Sehir_T">
+            <End Role="Sehir_T" EntitySet="Sehir_T" />
+            <End Role="Ilce_T" EntitySet="Ilce_T" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Personel" Association="Self.FK_Kullanici_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KullaniciSifre_Kullanici" Association="Self.FK_KullaniciSifre_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="KullaniciSifre" EntitySet="KullaniciSifre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaasIslem_Maas_T" Association="Self.FK_MaasIslem_Maas_T">
+            <End Role="Maas_T" EntitySet="Maas_T" />
+            <End Role="MaasIslem" EntitySet="MaasIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaasIslem_Personel" Association="Self.FK_MaasIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="MaasIslem" EntitySet="MaasIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelEgitim_Bolum" Association="Self.FK_PersonelEgitim_Bolum">
+            <End Role="Bolum" EntitySet="Bolum" />
+            <End Role="PersonelEgitim" EntitySet="PersonelEgitim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelEgitim_Personel" Association="Self.FK_PersonelEgitim_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelEgitim" EntitySet="PersonelEgitim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelGirisCikis_Personel" Association="Self.FK_PersonelGirisCikis_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelGirisCikis" EntitySet="PersonelGirisCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelIletisim_Personel" Association="Self.FK_PersonelIletisim_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelIletisim" EntitySet="PersonelIletisim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelIletisim_Semt_T" Association="Self.FK_PersonelIletisim_Semt_T">
+            <End Role="Semt_T" EntitySet="Semt_T" />
+            <End Role="PersonelIletisim" EntitySet="PersonelIletisim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelIzin_IzinTur" Association="Self.FK_PersonelIzin_IzinTur">
+            <End Role="IzinTur" EntitySet="IzinTur" />
+            <End Role="PersonelIzin" EntitySet="PersonelIzin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelIzin_Personel" Association="Self.FK_PersonelIzin_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelIzin" EntitySet="PersonelIzin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrimIslem_Personel" Association="Self.FK_PrimIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PrimIslem" EntitySet="PrimIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrimIslem_PrimCesidi" Association="Self.FK_PrimIslem_PrimCesidi">
+            <End Role="PrimCesidi" EntitySet="PrimCesidi" />
+            <End Role="PrimIslem" EntitySet="PrimIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Semt_T_Ilce_T" Association="Self.FK_Semt_T_Ilce_T">
+            <End Role="Ilce_T" EntitySet="Ilce_T" />
+            <End Role="Semt_T" EntitySet="Semt_T" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UnvanIslem_Personel" Association="Self.FK_UnvanIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="UnvanIslem" EntitySet="UnvanIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UnvanIslem_Unvan" Association="Self.FK_UnvanIslem_Unvan">
+            <End Role="Unvan" EntitySet="Unvan" />
+            <End Role="UnvanIslem" EntitySet="UnvanIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YetkiIslem_Personel" Association="Self.FK_YetkiIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="YetkiIslem" EntitySet="YetkiIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YetkiIslem_Yetki_T" Association="Self.FK_YetkiIslem_Yetki_T">
+            <End Role="Yetki_T" EntitySet="Yetki_T" />
+            <End Role="YetkiIslem" EntitySet="YetkiIslem" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IKEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Araclar">
+          <Key>
+            <PropertyRef Name="AracID" />
+          </Key>
+          <Property Name="AracID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plaka" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ModelID" Type="Int32" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="AracModel" Relationship="Self.FK_Araclar_AracModel" FromRole="Araclar" ToRole="AracModel" />
+          <NavigationProperty Name="AracPersonel" Relationship="Self.FK_AracPersonel_Araclar" FromRole="Araclar" ToRole="AracPersonel" />
+        </EntityType>
+        <EntityType Name="AracMarka">
+          <Key>
+            <PropertyRef Name="MarkaID" />
+          </Key>
+          <Property Name="MarkaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marka" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="AracModel" Relationship="Self.FK_AracModel_AracMarka" FromRole="AracMarka" ToRole="AracModel" />
+        </EntityType>
+        <EntityType Name="AracModel">
+          <Key>
+            <PropertyRef Name="ModelID" />
+          </Key>
+          <Property Name="ModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MarkaID" Type="Int32" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Araclar" Relationship="Self.FK_Araclar_AracModel" FromRole="AracModel" ToRole="Araclar" />
+          <NavigationProperty Name="AracMarka" Relationship="Self.FK_AracModel_AracMarka" FromRole="AracModel" ToRole="AracMarka" />
+        </EntityType>
+        <EntityType Name="AracPersonel">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="AldigiTarih" Type="DateTime" Precision="0" />
+          <Property Name="BiraktigiTarih" Type="DateTime" Precision="0" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Araclar" Relationship="Self.FK_AracPersonel_Araclar" FromRole="AracPersonel" ToRole="Araclar" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_AracPersonel_Personel" FromRole="AracPersonel" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="Birim_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BirimAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="BirimIslem" Relationship="Self.FK_BirimIslem_Birim_T" FromRole="Birim_T" ToRole="BirimIslem" />
+          <NavigationProperty Name="DepartmanIslem" Relationship="Self.FK_DepartmanIslem_Birim_T" FromRole="Birim_T" ToRole="DepartmanIslem" />
+        </EntityType>
+        <EntityType Name="BirimIslem">
+          <Key>
+            <PropertyRef Name="BirimID" />
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="BirimID" Type="Int32" Nullable="false" />
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Birim_T" Relationship="Self.FK_BirimIslem_Birim_T" FromRole="BirimIslem" ToRole="Birim_T" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_BirimIslem_Personel" FromRole="BirimIslem" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FakulteID" Type="Int32" />
+          <Property Name="BolumAdi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Fakulte" Relationship="Self.FK_Bolum_Fakulte" FromRole="Bolum" ToRole="Fakulte" />
+          <NavigationProperty Name="PersonelEgitim" Relationship="Self.FK_PersonelEgitim_Bolum" FromRole="Bolum" ToRole="PersonelEgitim" />
+        </EntityType>
+        <EntityType Name="Departman_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="DepartmanIslem" Relationship="Self.FK_DepartmanIslem_Departman_T" FromRole="Departman_T" ToRole="DepartmanIslem" />
+        </EntityType>
+        <EntityType Name="DepartmanIslem">
+          <Key>
+            <PropertyRef Name="DerpartmanID" />
+            <PropertyRef Name="BirimID" />
+          </Key>
+          <Property Name="DerpartmanID" Type="Int32" Nullable="false" />
+          <Property Name="BirimID" Type="Int32" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Birim_T" Relationship="Self.FK_DepartmanIslem_Birim_T" FromRole="DepartmanIslem" ToRole="Birim_T" />
+          <NavigationProperty Name="Departman_T" Relationship="Self.FK_DepartmanIslem_Departman_T" FromRole="DepartmanIslem" ToRole="Departman_T" />
+        </EntityType>
+        <EntityType Name="Fakulte">
+          <Key>
+            <PropertyRef Name="FakulteID" />
+          </Key>
+          <Property Name="FakulteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OkulID" Type="Int32" />
+          <Property Name="FakulteAdi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Bolum" Relationship="Self.FK_Bolum_Fakulte" FromRole="Fakulte" ToRole="Bolum" />
+          <NavigationProperty Name="Okul" Relationship="Self.FK_Fakulte_Okul" FromRole="Fakulte" ToRole="Okul" />
+        </EntityType>
+        <EntityType Name="Ilce_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlceAdi" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SehirID" Type="Int32" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Sehir_T" Relationship="Self.FK_Ilce_T_Sehir_T" FromRole="Ilce_T" ToRole="Sehir_T" />
+          <NavigationProperty Name="Semt_T" Relationship="Self.FK_Semt_T_Ilce_T" FromRole="Ilce_T" ToRole="Semt_T" />
+        </EntityType>
+        <EntityType Name="IzinTur">
+          <Key>
+            <PropertyRef Name="IzinTurID" />
+          </Key>
+          <Property Name="IzinTurID" Type="Int32" Nullable="false" />
+          <Property Name="IzinTuru" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="PersonelIzin" Relationship="Self.FK_PersonelIzin_IzinTur" FromRole="IzinTur" ToRole="PersonelIzin" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminMi" Type="Boolean" Nullable="false" />
+          <Property Name="PersonelID" Type="Int32" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_Kullanici_Personel" FromRole="Kullanici" ToRole="Personel" />
+          <NavigationProperty Name="KullaniciSifre" Relationship="Self.FK_KullaniciSifre_Kullanici" FromRole="Kullanici" ToRole="KullaniciSifre" />
+        </EntityType>
+        <EntityType Name="KullaniciSifre">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_KullaniciSifre_Kullanici" FromRole="KullaniciSifre" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="Maas_T">
+          <Key>
+            <PropertyRef Name="MaasID" />
+          </Key>
+          <Property Name="MaasID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaasTutari" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="MaasIslem" Relationship="Self.FK_MaasIslem_Maas_T" FromRole="Maas_T" ToRole="MaasIslem" />
+        </EntityType>
+        <EntityType Name="MaasIslem">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="MaasID" Type="Int32" Nullable="false" />
+          <Property Name="MaasTarihi" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Maas_T" Relationship="Self.FK_MaasIslem_Maas_T" FromRole="MaasIslem" ToRole="Maas_T" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_MaasIslem_Personel" FromRole="MaasIslem" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="Okul">
+          <Key>
+            <PropertyRef Name="OkulID" />
+          </Key>
+          <Property Name="OkulID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OkulAdi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Fakulte" Relationship="Self.FK_Fakulte_Okul" FromRole="Okul" ToRole="Fakulte" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TCNo" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="AracPersonel" Relationship="Self.FK_AracPersonel_Personel" FromRole="Personel" ToRole="AracPersonel" />
+          <NavigationProperty Name="BirimIslem" Relationship="Self.FK_BirimIslem_Personel" FromRole="Personel" ToRole="BirimIslem" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_Personel" FromRole="Personel" ToRole="Kullanici" />
+          <NavigationProperty Name="MaasIslem" Relationship="Self.FK_MaasIslem_Personel" FromRole="Personel" ToRole="MaasIslem" />
+          <NavigationProperty Name="PersonelEgitim" Relationship="Self.FK_PersonelEgitim_Personel" FromRole="Personel" ToRole="PersonelEgitim" />
+          <NavigationProperty Name="PersonelGirisCikis" Relationship="Self.FK_PersonelGirisCikis_Personel" FromRole="Personel" ToRole="PersonelGirisCikis" />
+          <NavigationProperty Name="PersonelIletisim" Relationship="Self.FK_PersonelIletisim_Personel" FromRole="Personel" ToRole="PersonelIletisim" />
+          <NavigationProperty Name="PersonelIzin" Relationship="Self.FK_PersonelIzin_Personel" FromRole="Personel" ToRole="PersonelIzin" />
+          <NavigationProperty Name="PrimIslem" Relationship="Self.FK_PrimIslem_Personel" FromRole="Personel" ToRole="PrimIslem" />
+          <NavigationProperty Name="UnvanIslem" Relationship="Self.FK_UnvanIslem_Personel" FromRole="Personel" ToRole="UnvanIslem" />
+          <NavigationProperty Name="YetkiIslem" Relationship="Self.FK_YetkiIslem_Personel" FromRole="Personel" ToRole="YetkiIslem" />
+        </EntityType>
+        <EntityType Name="PersonelEgitim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelID" Type="Int32" />
+          <Property Name="BolumID" Type="Int32" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Bolum" Relationship="Self.FK_PersonelEgitim_Bolum" FromRole="PersonelEgitim" ToRole="Bolum" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_PersonelEgitim_Personel" FromRole="PersonelEgitim" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="PersonelGirisCikis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="IseBaslamaTarihi" Type="DateTime" Precision="0" />
+          <Property Name="IstenCikmaTarihi" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_PersonelGirisCikis_Personel" FromRole="PersonelGirisCikis" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="PersonelIletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="CepTel" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="EvTel" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="EMail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SemtID" Type="Int32" />
+          <Property Name="AcikAdres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_PersonelIletisim_Personel" FromRole="PersonelIletisim" ToRole="Personel" />
+          <NavigationProperty Name="Semt_T" Relationship="Self.FK_PersonelIletisim_Semt_T" FromRole="PersonelIletisim" ToRole="Semt_T" />
+        </EntityType>
+        <EntityType Name="PersonelIzin">
+          <Key>
+            <PropertyRef Name="PersonelIzinID" />
+          </Key>
+          <Property Name="PersonelIzinID" Type="Int32" Nullable="false" />
+          <Property Name="IzinTurID" Type="Int32" Nullable="false" />
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="IzinBasTarihi" Type="DateTime" Precision="0" />
+          <Property Name="IzinBitisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="IzinTur" Relationship="Self.FK_PersonelIzin_IzinTur" FromRole="PersonelIzin" ToRole="IzinTur" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_PersonelIzin_Personel" FromRole="PersonelIzin" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="PrimCesidi">
+          <Key>
+            <PropertyRef Name="PrimID" />
+          </Key>
+          <Property Name="PrimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrimCesidi1" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="PrimIslem" Relationship="Self.FK_PrimIslem_PrimCesidi" FromRole="PrimCesidi" ToRole="PrimIslem" />
+        </EntityType>
+        <EntityType Name="PrimIslem">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="PrimID" Type="Int32" Nullable="false" />
+          <Property Name="PrimTutari" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="PrimTarihi" Type="DateTime" Precision="0" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_PrimIslem_Personel" FromRole="PrimIslem" ToRole="Personel" />
+          <NavigationProperty Name="PrimCesidi" Relationship="Self.FK_PrimIslem_PrimCesidi" FromRole="PrimIslem" ToRole="PrimCesidi" />
+        </EntityType>
+        <EntityType Name="Sehir_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SehirAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Ilce_T" Relationship="Self.FK_Ilce_T_Sehir_T" FromRole="Sehir_T" ToRole="Ilce_T" />
+        </EntityType>
+        <EntityType Name="Semt_T">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SemtAdi" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IlceID" Type="Int32" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Ilce_T" Relationship="Self.FK_Semt_T_Ilce_T" FromRole="Semt_T" ToRole="Ilce_T" />
+          <NavigationProperty Name="PersonelIletisim" Relationship="Self.FK_PersonelIletisim_Semt_T" FromRole="Semt_T" ToRole="PersonelIletisim" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Unvan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnvanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UnvanIslem" Relationship="Self.FK_UnvanIslem_Unvan" FromRole="Unvan" ToRole="UnvanIslem" />
+        </EntityType>
+        <EntityType Name="UnvanIslem">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+            <PropertyRef Name="UnvanID" />
+          </Key>
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="UnvanID" Type="Int32" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_UnvanIslem_Personel" FromRole="UnvanIslem" ToRole="Personel" />
+          <NavigationProperty Name="Unvan" Relationship="Self.FK_UnvanIslem_Unvan" FromRole="UnvanIslem" ToRole="Unvan" />
+        </EntityType>
+        <EntityType Name="Yetki_T">
+          <Key>
+            <PropertyRef Name="YetkiID" />
+          </Key>
+          <Property Name="YetkiID" Type="Int32" Nullable="false" />
+          <Property Name="YetkiAdi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="YetkiIslem" Relationship="Self.FK_YetkiIslem_Yetki_T" FromRole="Yetki_T" ToRole="YetkiIslem" />
+        </EntityType>
+        <EntityType Name="YetkiIslem">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+            <PropertyRef Name="YetkiID" />
+          </Key>
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="YetkiID" Type="Int32" Nullable="false" />
+          <Property Name="AktifMi" Type="Boolean" />
+          <NavigationProperty Name="Personel" Relationship="Self.FK_YetkiIslem_Personel" FromRole="YetkiIslem" ToRole="Personel" />
+          <NavigationProperty Name="Yetki_T" Relationship="Self.FK_YetkiIslem_Yetki_T" FromRole="YetkiIslem" ToRole="Yetki_T" />
+        </EntityType>
+        <Association Name="FK_Araclar_AracModel">
+          <End Role="AracModel" Type="Self.AracModel" Multiplicity="1" />
+          <End Role="Araclar" Type="Self.Araclar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracModel">
+              <PropertyRef Name="ModelID" />
+            </Principal>
+            <Dependent Role="Araclar">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracPersonel_Araclar">
+          <End Role="Araclar" Type="Self.Araclar" Multiplicity="1" />
+          <End Role="AracPersonel" Type="Self.AracPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Araclar">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="AracPersonel">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracModel_AracMarka">
+          <End Role="AracMarka" Type="Self.AracMarka" Multiplicity="1" />
+          <End Role="AracModel" Type="Self.AracModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracMarka">
+              <PropertyRef Name="MarkaID" />
+            </Principal>
+            <Dependent Role="AracModel">
+              <PropertyRef Name="MarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracPersonel_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="AracPersonel" Type="Self.AracPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AracPersonel">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BirimIslem_Birim_T">
+          <End Role="Birim_T" Type="Self.Birim_T" Multiplicity="1" />
+          <End Role="BirimIslem" Type="Self.BirimIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Birim_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BirimIslem">
+              <PropertyRef Name="BirimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmanIslem_Birim_T">
+          <End Role="Birim_T" Type="Self.Birim_T" Multiplicity="1" />
+          <End Role="DepartmanIslem" Type="Self.DepartmanIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Birim_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DepartmanIslem">
+              <PropertyRef Name="BirimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BirimIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="BirimIslem" Type="Self.BirimIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BirimIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bolum_Fakulte">
+          <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="0..1" />
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fakulte">
+              <PropertyRef Name="FakulteID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelEgitim_Bolum">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+          <End Role="PersonelEgitim" Type="Self.PersonelEgitim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="PersonelEgitim">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmanIslem_Departman_T">
+          <End Role="Departman_T" Type="Self.Departman_T" Multiplicity="1" />
+          <End Role="DepartmanIslem" Type="Self.DepartmanIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DepartmanIslem">
+              <PropertyRef Name="DerpartmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fakulte_Okul">
+          <End Role="Okul" Type="Self.Okul" Multiplicity="0..1" />
+          <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Okul">
+              <PropertyRef Name="OkulID" />
+            </Principal>
+            <Dependent Role="Fakulte">
+              <PropertyRef Name="OkulID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ilce_T_Sehir_T">
+          <End Role="Sehir_T" Type="Self.Sehir_T" Multiplicity="1" />
+          <End Role="Ilce_T" Type="Self.Ilce_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehir_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ilce_T">
+              <PropertyRef Name="SehirID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Semt_T_Ilce_T">
+          <End Role="Ilce_T" Type="Self.Ilce_T" Multiplicity="1" />
+          <End Role="Semt_T" Type="Self.Semt_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilce_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Semt_T">
+              <PropertyRef Name="IlceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelIzin_IzinTur">
+          <End Role="IzinTur" Type="Self.IzinTur" Multiplicity="1" />
+          <End Role="PersonelIzin" Type="Self.PersonelIzin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IzinTur">
+              <PropertyRef Name="IzinTurID" />
+            </Principal>
+            <Dependent Role="PersonelIzin">
+              <PropertyRef Name="IzinTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="0..1" />
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KullaniciSifre_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="KullaniciSifre" Type="Self.KullaniciSifre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="KullaniciSifre">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaasIslem_Maas_T">
+          <End Role="Maas_T" Type="Self.Maas_T" Multiplicity="1" />
+          <End Role="MaasIslem" Type="Self.MaasIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maas_T">
+              <PropertyRef Name="MaasID" />
+            </Principal>
+            <Dependent Role="MaasIslem">
+              <PropertyRef Name="MaasID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaasIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="MaasIslem" Type="Self.MaasIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MaasIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelEgitim_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="0..1" />
+          <End Role="PersonelEgitim" Type="Self.PersonelEgitim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelEgitim">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelGirisCikis_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="PersonelGirisCikis" Type="Self.PersonelGirisCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelGirisCikis">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelIletisim_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="PersonelIletisim" Type="Self.PersonelIletisim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelIletisim">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelIzin_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="PersonelIzin" Type="Self.PersonelIzin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelIzin">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrimIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="PrimIslem" Type="Self.PrimIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PrimIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnvanIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="UnvanIslem" Type="Self.UnvanIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UnvanIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YetkiIslem_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1" />
+          <End Role="YetkiIslem" Type="Self.YetkiIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="YetkiIslem">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelIletisim_Semt_T">
+          <End Role="Semt_T" Type="Self.Semt_T" Multiplicity="0..1" />
+          <End Role="PersonelIletisim" Type="Self.PersonelIletisim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semt_T">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonelIletisim">
+              <PropertyRef Name="SemtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrimIslem_PrimCesidi">
+          <End Role="PrimCesidi" Type="Self.PrimCesidi" Multiplicity="1" />
+          <End Role="PrimIslem" Type="Self.PrimIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrimCesidi">
+              <PropertyRef Name="PrimID" />
+            </Principal>
+            <Dependent Role="PrimIslem">
+              <PropertyRef Name="PrimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnvanIslem_Unvan">
+          <End Role="Unvan" Type="Self.Unvan" Multiplicity="1" />
+          <End Role="UnvanIslem" Type="Self.UnvanIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unvan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UnvanIslem">
+              <PropertyRef Name="UnvanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YetkiIslem_Yetki_T">
+          <End Role="Yetki_T" Type="Self.Yetki_T" Multiplicity="1" />
+          <End Role="YetkiIslem" Type="Self.YetkiIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yetki_T">
+              <PropertyRef Name="YetkiID" />
+            </Principal>
+            <Dependent Role="YetkiIslem">
+              <PropertyRef Name="YetkiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IKConnections" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Araclar" EntityType="Self.Araclar" />
+          <EntitySet Name="AracMarka" EntityType="Self.AracMarka" />
+          <EntitySet Name="AracModel" EntityType="Self.AracModel" />
+          <EntitySet Name="AracPersonel" EntityType="Self.AracPersonel" />
+          <EntitySet Name="Birim_T" EntityType="Self.Birim_T" />
+          <EntitySet Name="BirimIslem" EntityType="Self.BirimIslem" />
+          <EntitySet Name="Bolum" EntityType="Self.Bolum" />
+          <EntitySet Name="Departman_T" EntityType="Self.Departman_T" />
+          <EntitySet Name="DepartmanIslem" EntityType="Self.DepartmanIslem" />
+          <EntitySet Name="Fakulte" EntityType="Self.Fakulte" />
+          <EntitySet Name="Ilce_T" EntityType="Self.Ilce_T" />
+          <EntitySet Name="IzinTur" EntityType="Self.IzinTur" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+          <EntitySet Name="KullaniciSifre" EntityType="Self.KullaniciSifre" />
+          <EntitySet Name="Maas_T" EntityType="Self.Maas_T" />
+          <EntitySet Name="MaasIslem" EntityType="Self.MaasIslem" />
+          <EntitySet Name="Okul" EntityType="Self.Okul" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" />
+          <EntitySet Name="PersonelEgitim" EntityType="Self.PersonelEgitim" />
+          <EntitySet Name="PersonelGirisCikis" EntityType="Self.PersonelGirisCikis" />
+          <EntitySet Name="PersonelIletisim" EntityType="Self.PersonelIletisim" />
+          <EntitySet Name="PersonelIzin" EntityType="Self.PersonelIzin" />
+          <EntitySet Name="PrimCesidi" EntityType="Self.PrimCesidi" />
+          <EntitySet Name="PrimIslem" EntityType="Self.PrimIslem" />
+          <EntitySet Name="Sehir_T" EntityType="Self.Sehir_T" />
+          <EntitySet Name="Semt_T" EntityType="Self.Semt_T" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Unvan" EntityType="Self.Unvan" />
+          <EntitySet Name="UnvanIslem" EntityType="Self.UnvanIslem" />
+          <EntitySet Name="Yetki_T" EntityType="Self.Yetki_T" />
+          <EntitySet Name="YetkiIslem" EntityType="Self.YetkiIslem" />
+          <AssociationSet Name="FK_Araclar_AracModel" Association="Self.FK_Araclar_AracModel">
+            <End Role="AracModel" EntitySet="AracModel" />
+            <End Role="Araclar" EntitySet="Araclar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracPersonel_Araclar" Association="Self.FK_AracPersonel_Araclar">
+            <End Role="Araclar" EntitySet="Araclar" />
+            <End Role="AracPersonel" EntitySet="AracPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracModel_AracMarka" Association="Self.FK_AracModel_AracMarka">
+            <End Role="AracMarka" EntitySet="AracMarka" />
+            <End Role="AracModel" EntitySet="AracModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracPersonel_Personel" Association="Self.FK_AracPersonel_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="AracPersonel" EntitySet="AracPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BirimIslem_Birim_T" Association="Self.FK_BirimIslem_Birim_T">
+            <End Role="Birim_T" EntitySet="Birim_T" />
+            <End Role="BirimIslem" EntitySet="BirimIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmanIslem_Birim_T" Association="Self.FK_DepartmanIslem_Birim_T">
+            <End Role="Birim_T" EntitySet="Birim_T" />
+            <End Role="DepartmanIslem" EntitySet="DepartmanIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BirimIslem_Personel" Association="Self.FK_BirimIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="BirimIslem" EntitySet="BirimIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bolum_Fakulte" Association="Self.FK_Bolum_Fakulte">
+            <End Role="Fakulte" EntitySet="Fakulte" />
+            <End Role="Bolum" EntitySet="Bolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelEgitim_Bolum" Association="Self.FK_PersonelEgitim_Bolum">
+            <End Role="Bolum" EntitySet="Bolum" />
+            <End Role="PersonelEgitim" EntitySet="PersonelEgitim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmanIslem_Departman_T" Association="Self.FK_DepartmanIslem_Departman_T">
+            <End Role="Departman_T" EntitySet="Departman_T" />
+            <End Role="DepartmanIslem" EntitySet="DepartmanIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fakulte_Okul" Association="Self.FK_Fakulte_Okul">
+            <End Role="Okul" EntitySet="Okul" />
+            <End Role="Fakulte" EntitySet="Fakulte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ilce_T_Sehir_T" Association="Self.FK_Ilce_T_Sehir_T">
+            <End Role="Sehir_T" EntitySet="Sehir_T" />
+            <End Role="Ilce_T" EntitySet="Ilce_T" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Semt_T_Ilce_T" Association="Self.FK_Semt_T_Ilce_T">
+            <End Role="Ilce_T" EntitySet="Ilce_T" />
+            <End Role="Semt_T" EntitySet="Semt_T" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelIzin_IzinTur" Association="Self.FK_PersonelIzin_IzinTur">
+            <End Role="IzinTur" EntitySet="IzinTur" />
+            <End Role="PersonelIzin" EntitySet="PersonelIzin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Personel" Association="Self.FK_Kullanici_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KullaniciSifre_Kullanici" Association="Self.FK_KullaniciSifre_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="KullaniciSifre" EntitySet="KullaniciSifre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaasIslem_Maas_T" Association="Self.FK_MaasIslem_Maas_T">
+            <End Role="Maas_T" EntitySet="Maas_T" />
+            <End Role="MaasIslem" EntitySet="MaasIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaasIslem_Personel" Association="Self.FK_MaasIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="MaasIslem" EntitySet="MaasIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelEgitim_Personel" Association="Self.FK_PersonelEgitim_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelEgitim" EntitySet="PersonelEgitim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelGirisCikis_Personel" Association="Self.FK_PersonelGirisCikis_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelGirisCikis" EntitySet="PersonelGirisCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelIletisim_Personel" Association="Self.FK_PersonelIletisim_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelIletisim" EntitySet="PersonelIletisim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelIzin_Personel" Association="Self.FK_PersonelIzin_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelIzin" EntitySet="PersonelIzin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrimIslem_Personel" Association="Self.FK_PrimIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PrimIslem" EntitySet="PrimIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UnvanIslem_Personel" Association="Self.FK_UnvanIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="UnvanIslem" EntitySet="UnvanIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YetkiIslem_Personel" Association="Self.FK_YetkiIslem_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="YetkiIslem" EntitySet="YetkiIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelIletisim_Semt_T" Association="Self.FK_PersonelIletisim_Semt_T">
+            <End Role="Semt_T" EntitySet="Semt_T" />
+            <End Role="PersonelIletisim" EntitySet="PersonelIletisim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrimIslem_PrimCesidi" Association="Self.FK_PrimIslem_PrimCesidi">
+            <End Role="PrimCesidi" EntitySet="PrimCesidi" />
+            <End Role="PrimIslem" EntitySet="PrimIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UnvanIslem_Unvan" Association="Self.FK_UnvanIslem_Unvan">
+            <End Role="Unvan" EntitySet="Unvan" />
+            <End Role="UnvanIslem" EntitySet="UnvanIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YetkiIslem_Yetki_T" Association="Self.FK_YetkiIslem_Yetki_T">
+            <End Role="Yetki_T" EntitySet="Yetki_T" />
+            <End Role="YetkiIslem" EntitySet="YetkiIslem" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(IKEntities.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(IKEntities.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_PersonelEkle">
+            <Parameter Name="Adi" Mode="In" Type="String" />
+            <Parameter Name="Soyadi" Mode="In" Type="String" />
+            <Parameter Name="TCNO" Mode="In" Type="String" />
+            <Parameter Name="IseBaslamaTarihi" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IKEntitiesStoreContainer" CdmEntityContainer="IKConnections">
+          <EntitySetMapping Name="Araclar">
+            <EntityTypeMapping TypeName="IKEntities.Araclar">
+              <MappingFragment StoreEntitySet="Araclar">
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracMarka">
+            <EntityTypeMapping TypeName="IKEntities.AracMarka">
+              <MappingFragment StoreEntitySet="AracMarka">
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracModel">
+            <EntityTypeMapping TypeName="IKEntities.AracModel">
+              <MappingFragment StoreEntitySet="AracModel">
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracPersonel">
+            <EntityTypeMapping TypeName="IKEntities.AracPersonel">
+              <MappingFragment StoreEntitySet="AracPersonel">
+                <ScalarProperty Name="IslemID" ColumnName="IslemID" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="AldigiTarih" ColumnName="AldigiTarih" />
+                <ScalarProperty Name="BiraktigiTarih" ColumnName="BiraktigiTarih" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Birim_T">
+            <EntityTypeMapping TypeName="IKEntities.Birim_T">
+              <MappingFragment StoreEntitySet="Birim_T">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BirimAdi" ColumnName="BirimAdi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BirimIslem">
+            <EntityTypeMapping TypeName="IKEntities.BirimIslem">
+              <MappingFragment StoreEntitySet="BirimIslem">
+                <ScalarProperty Name="BirimID" ColumnName="BirimID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bolum">
+            <EntityTypeMapping TypeName="IKEntities.Bolum">
+              <MappingFragment StoreEntitySet="Bolum">
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="FakulteID" ColumnName="FakulteID" />
+                <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departman_T">
+            <EntityTypeMapping TypeName="IKEntities.Departman_T">
+              <MappingFragment StoreEntitySet="Departman_T">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DepartmanAdi" ColumnName="DepartmanAdi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartmanIslem">
+            <EntityTypeMapping TypeName="IKEntities.DepartmanIslem">
+              <MappingFragment StoreEntitySet="DepartmanIslem">
+                <ScalarProperty Name="DerpartmanID" ColumnName="DerpartmanID" />
+                <ScalarProperty Name="BirimID" ColumnName="BirimID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fakulte">
+            <EntityTypeMapping TypeName="IKEntities.Fakulte">
+              <MappingFragment StoreEntitySet="Fakulte">
+                <ScalarProperty Name="FakulteID" ColumnName="FakulteID" />
+                <ScalarProperty Name="OkulID" ColumnName="OkulID" />
+                <ScalarProperty Name="FakulteAdi" ColumnName="FakulteAdi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ilce_T">
+            <EntityTypeMapping TypeName="IKEntities.Ilce_T">
+              <MappingFragment StoreEntitySet="Ilce_T">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IlceAdi" ColumnName="IlceAdi" />
+                <ScalarProperty Name="SehirID" ColumnName="SehirID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IzinTur">
+            <EntityTypeMapping TypeName="IKEntities.IzinTur">
+              <MappingFragment StoreEntitySet="IzinTur">
+                <ScalarProperty Name="IzinTurID" ColumnName="IzinTurID" />
+                <ScalarProperty Name="IzinTuru" ColumnName="IzinTuru" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="IKEntities.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="AdminMi" ColumnName="AdminMi" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciSifre">
+            <EntityTypeMapping TypeName="IKEntities.KullaniciSifre">
+              <MappingFragment StoreEntitySet="KullaniciSifre">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maas_T">
+            <EntityTypeMapping TypeName="IKEntities.Maas_T">
+              <MappingFragment StoreEntitySet="Maas_T">
+                <ScalarProperty Name="MaasID" ColumnName="MaasID" />
+                <ScalarProperty Name="MaasTutari" ColumnName="MaasTutari" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaasIslem">
+            <EntityTypeMapping TypeName="IKEntities.MaasIslem">
+              <MappingFragment StoreEntitySet="MaasIslem">
+                <ScalarProperty Name="IslemID" ColumnName="IslemID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="MaasID" ColumnName="MaasID" />
+                <ScalarProperty Name="MaasTarihi" ColumnName="MaasTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Okul">
+            <EntityTypeMapping TypeName="IKEntities.Okul">
+              <MappingFragment StoreEntitySet="Okul">
+                <ScalarProperty Name="OkulID" ColumnName="OkulID" />
+                <ScalarProperty Name="OkulAdi" ColumnName="OkulAdi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personel">
+            <EntityTypeMapping TypeName="IKEntities.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="TCNo" ColumnName="TCNo" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelEgitim">
+            <EntityTypeMapping TypeName="IKEntities.PersonelEgitim">
+              <MappingFragment StoreEntitySet="PersonelEgitim">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelGirisCikis">
+            <EntityTypeMapping TypeName="IKEntities.PersonelGirisCikis">
+              <MappingFragment StoreEntitySet="PersonelGirisCikis">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="IseBaslamaTarihi" ColumnName="IseBaslamaTarihi" />
+                <ScalarProperty Name="IstenCikmaTarihi" ColumnName="IstenCikmaTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelIletisim">
+            <EntityTypeMapping TypeName="IKEntities.PersonelIletisim">
+              <MappingFragment StoreEntitySet="PersonelIletisim">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="CepTel" ColumnName="CepTel" />
+                <ScalarProperty Name="EvTel" ColumnName="EvTel" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="SemtID" ColumnName="SemtID" />
+                <ScalarProperty Name="AcikAdres" ColumnName="AcikAdres" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelIzin">
+            <EntityTypeMapping TypeName="IKEntities.PersonelIzin">
+              <MappingFragment StoreEntitySet="PersonelIzin">
+                <ScalarProperty Name="PersonelIzinID" ColumnName="PersonelIzinID" />
+                <ScalarProperty Name="IzinTurID" ColumnName="IzinTurID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="IzinBasTarihi" ColumnName="IzinBasTarihi" />
+                <ScalarProperty Name="IzinBitisTarihi" ColumnName="IzinBitisTarihi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrimCesidi">
+            <EntityTypeMapping TypeName="IKEntities.PrimCesidi">
+              <MappingFragment StoreEntitySet="PrimCesidi">
+                <ScalarProperty Name="PrimID" ColumnName="PrimID" />
+                <ScalarProperty Name="PrimCesidi1" ColumnName="PrimCesidi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrimIslem">
+            <EntityTypeMapping TypeName="IKEntities.PrimIslem">
+              <MappingFragment StoreEntitySet="PrimIslem">
+                <ScalarProperty Name="IslemID" ColumnName="IslemID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="PrimID" ColumnName="PrimID" />
+                <ScalarProperty Name="PrimTutari" ColumnName="PrimTutari" />
+                <ScalarProperty Name="PrimTarihi" ColumnName="PrimTarihi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sehir_T">
+            <EntityTypeMapping TypeName="IKEntities.Sehir_T">
+              <MappingFragment StoreEntitySet="Sehir_T">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SehirAdi" ColumnName="SehirAdi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semt_T">
+            <EntityTypeMapping TypeName="IKEntities.Semt_T">
+              <MappingFragment StoreEntitySet="Semt_T">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SemtAdi" ColumnName="SemtAdi" />
+                <ScalarProperty Name="IlceID" ColumnName="IlceID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IKEntities.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unvan">
+            <EntityTypeMapping TypeName="IKEntities.Unvan">
+              <MappingFragment StoreEntitySet="Unvan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UnvanAdi" ColumnName="UnvanAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnvanIslem">
+            <EntityTypeMapping TypeName="IKEntities.UnvanIslem">
+              <MappingFragment StoreEntitySet="UnvanIslem">
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="UnvanID" ColumnName="UnvanID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yetki_T">
+            <EntityTypeMapping TypeName="IKEntities.Yetki_T">
+              <MappingFragment StoreEntitySet="Yetki_T">
+                <ScalarProperty Name="YetkiID" ColumnName="YetkiID" />
+                <ScalarProperty Name="YetkiAdi" ColumnName="YetkiAdi" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YetkiIslem">
+            <EntityTypeMapping TypeName="IKEntities.YetkiIslem">
+              <MappingFragment StoreEntitySet="YetkiIslem">
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="YetkiID" ColumnName="YetkiID" />
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="IKEntities.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="IKEntities.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="IKEntities.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="IKEntities.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IKEntities.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="IKEntities.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IKEntities.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_PersonelEkle" FunctionName="IKEntities.Store.sp_PersonelEkle" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="IKEntities.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="IKEntities.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

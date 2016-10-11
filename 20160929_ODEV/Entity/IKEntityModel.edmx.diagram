@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86b36a9c4132490db38819d44c15baa5" Name="Diagram1">
+        <EntityTypeShape EntityType="IKEntities.Araclar" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.AracMarka" Width="1.5" PointX="1.5" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.AracModel" Width="1.5" PointX="1.5" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.AracPersonel" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Birim_T" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.BirimIslem" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Bolum" Width="1.5" PointX="3.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Departman_T" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.DepartmanIslem" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Fakulte" Width="1.5" PointX="1.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Ilce_T" Width="1.5" PointX="3.5" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.IzinTur" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Kullanici" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.KullaniciSifre" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Maas_T" Width="1.5" PointX="3.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.MaasIslem" Width="1.5" PointX="6" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Okul" Width="1.5" PointX="1.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Personel" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.PersonelEgitim" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.PersonelGirisCikis" Width="1.5" PointX="3" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.PersonelIletisim" Width="1.5" PointX="8" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.PersonelIzin" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.PrimCesidi" Width="1.5" PointX="6.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.PrimIslem" Width="1.5" PointX="9" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Sehir_T" Width="1.5" PointX="1.25" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Semt_T" Width="1.5" PointX="5.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Unvan" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.UnvanIslem" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.Yetki_T" Width="1.5" PointX="6.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKEntities.YetkiIslem" Width="1.5" PointX="9" PointY="14.875" IsExpanded="true" />
+        <AssociationConnector Association="IKEntities.FK_Araclar_AracModel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_AracPersonel_Araclar" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_AracModel_AracMarka" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_AracPersonel_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_BirimIslem_Birim_T" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_DepartmanIslem_Birim_T" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_BirimIslem_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_Bolum_Fakulte" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PersonelEgitim_Bolum" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_DepartmanIslem_Departman_T" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_Fakulte_Okul" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_Ilce_T_Sehir_T" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_Semt_T_Ilce_T" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PersonelIzin_IzinTur" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_Kullanici_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_KullaniciSifre_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_MaasIslem_Maas_T" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_MaasIslem_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PersonelEgitim_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PersonelGirisCikis_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PersonelIletisim_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PersonelIzin_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PrimIslem_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_UnvanIslem_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_YetkiIslem_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PersonelIletisim_Semt_T" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_PrimIslem_PrimCesidi" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_UnvanIslem_Unvan" ManuallyRouted="false" />
+        <AssociationConnector Association="IKEntities.FK_YetkiIslem_Yetki_T" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

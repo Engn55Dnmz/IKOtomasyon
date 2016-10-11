@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4190154-5247-44CB-A4CB-192546C55856}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entity</RootNamespace>
+    <AssemblyName>Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Araclar.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AracMarka.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AracModel.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AracPersonel.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BirimIslem.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Birim_T.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bolum.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmanIslem.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Departman_T.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fakulte.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IKEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IKEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IKEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IKEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IKEntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Ilce_T.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IzinTur.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanici.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciSifre.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaasIslem.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Maas_T.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Okul.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Personel.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAracTahsisleriEntity.cs" />
+    <Compile Include="PersonelAyrintiEntity.cs" />
+    <Compile Include="PersonelEgitim.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelGirisCikis.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelIletisim.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelIzin.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelIzinleriEntity.cs" />
+    <Compile Include="PersonelMaaslariEntity.cs" />
+    <Compile Include="PrimCesidi.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrimIslem.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sehir_T.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Semt_T.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Unvan.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnvanIslem.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YetkiIslem.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Yetki_T.cs">
+      <DependentUpon>IKEntityModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="IKEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IKEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="IKEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IKEntityModel.edmx</DependentUpon>
+      <LastGenOutput>IKEntityModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="IKEntityModel.edmx.diagram">
+      <DependentUpon>IKEntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="IKEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IKEntityModel.edmx</DependentUpon>
+      <LastGenOutput>IKEntityModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

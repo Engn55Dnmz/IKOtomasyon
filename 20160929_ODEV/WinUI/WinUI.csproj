@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D338F774-FF88-4C20-80EB-6BB089AFF9D4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WinUI</RootNamespace>
+    <AssemblyName>WinUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ekle\AracEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\AracEkle.Designer.cs">
+      <DependentUpon>AracEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\AracMarkaEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\AracMarkaEkle.Designer.cs">
+      <DependentUpon>AracMarkaEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\AracModelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\AracModelEkle.Designer.cs">
+      <DependentUpon>AracModelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\BirimEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\BirimEkle.Designer.cs">
+      <DependentUpon>BirimEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\BolumEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\BolumEkle.Designer.cs">
+      <DependentUpon>BolumEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\IlceEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\IlceEkle.Designer.cs">
+      <DependentUpon>IlceEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\IzinTurEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\IzinTurEkle.Designer.cs">
+      <DependentUpon>IzinTurEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\MaasEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\MaasEkle.Designer.cs">
+      <DependentUpon>MaasEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\PersonelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\PersonelEkle.Designer.cs">
+      <DependentUpon>PersonelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\PrimEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\PrimEkle.Designer.cs">
+      <DependentUpon>PrimEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\UniversiteEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\UniversiteEkle.Designer.cs">
+      <DependentUpon>UniversiteEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\UnvanEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\UnvanEkle.Designer.cs">
+      <DependentUpon>UnvanEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\YetkiEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\YetkiEkle.Designer.cs">
+      <DependentUpon>YetkiEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\AracTahsisEt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\AracTahsisEt.Designer.cs">
+      <DependentUpon>AracTahsisEt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\DepartmanEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\DepartmanEkle.Designer.cs">
+      <DependentUpon>DepartmanEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\BirimBelirle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\BirimBelirle.Designer.cs">
+      <DependentUpon>BirimBelirle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\FakulteEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\FakulteEkle.Designer.cs">
+      <DependentUpon>FakulteEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Giris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giris.Designer.cs">
+      <DependentUpon>Giris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\EgitimBilgisiEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\EgitimBilgisiEkle.Designer.cs">
+      <DependentUpon>EgitimBilgisiEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\IletisimBilgisiBelirle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\IletisimBilgisiBelirle.Designer.cs">
+      <DependentUpon>IletisimBilgisiBelirle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\IseGirisCikisBelirle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\IseGirisCikisBelirle.Designer.cs">
+      <DependentUpon>IseGirisCikisBelirle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\IzinTanımla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\IzinTanımla.Designer.cs">
+      <DependentUpon>IzinTanımla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\KullaniciEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\KullaniciEkle.Designer.cs">
+      <DependentUpon>KullaniciEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listele.Designer.cs">
+      <DependentUpon>Listele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\MaasVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\MaasVer.Designer.cs">
+      <DependentUpon>MaasVer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\PrimVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\PrimVer.Designer.cs">
+      <DependentUpon>PrimVer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\UnvanBelirle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\UnvanBelirle.Designer.cs">
+      <DependentUpon>UnvanBelirle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelAlti\YetkiAta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonelAlti\YetkiAta.Designer.cs">
+      <DependentUpon>YetkiAta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ekle\SehirEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\SehirEkle.Designer.cs">
+      <DependentUpon>SehirEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ekle\SemtEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ekle\SemtEkle.Designer.cs">
+      <DependentUpon>SemtEkle.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Ekle\AracEkle.resx">
+      <DependentUpon>AracEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\AracMarkaEkle.resx">
+      <DependentUpon>AracMarkaEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\AracModelEkle.resx">
+      <DependentUpon>AracModelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\BirimEkle.resx">
+      <DependentUpon>BirimEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\BolumEkle.resx">
+      <DependentUpon>BolumEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\IlceEkle.resx">
+      <DependentUpon>IlceEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\IzinTurEkle.resx">
+      <DependentUpon>IzinTurEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\MaasEkle.resx">
+      <DependentUpon>MaasEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\PersonelEkle.resx">
+      <DependentUpon>PersonelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\PrimEkle.resx">
+      <DependentUpon>PrimEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\UniversiteEkle.resx">
+      <DependentUpon>UniversiteEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\UnvanEkle.resx">
+      <DependentUpon>UnvanEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\YetkiEkle.resx">
+      <DependentUpon>YetkiEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\AracTahsisEt.resx">
+      <DependentUpon>AracTahsisEt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\DepartmanEkle.resx">
+      <DependentUpon>DepartmanEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\BirimBelirle.resx">
+      <DependentUpon>BirimBelirle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\FakulteEkle.resx">
+      <DependentUpon>FakulteEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Giris.resx">
+      <DependentUpon>Giris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\EgitimBilgisiEkle.resx">
+      <DependentUpon>EgitimBilgisiEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\IletisimBilgisiBelirle.resx">
+      <DependentUpon>IletisimBilgisiBelirle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\IseGirisCikisBelirle.resx">
+      <DependentUpon>IseGirisCikisBelirle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\IzinTanımla.resx">
+      <DependentUpon>IzinTanımla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\KullaniciEkle.resx">
+      <DependentUpon>KullaniciEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listele.resx">
+      <DependentUpon>Listele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\MaasVer.resx">
+      <DependentUpon>MaasVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\PrimVer.resx">
+      <DependentUpon>PrimVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\UnvanBelirle.resx">
+      <DependentUpon>UnvanBelirle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelAlti\YetkiAta.resx">
+      <DependentUpon>YetkiAta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Ekle\SehirEkle.resx">
+      <DependentUpon>SehirEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ekle\SemtEkle.resx">
+      <DependentUpon>SemtEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{6fd96545-a8f5-4730-bcff-9c35be2c2a46}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{b4190154-5247-44cb-a4cb-192546c55856}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Extension\Extension.csproj">
+      <Project>{1c67386b-fdb5-4e8f-9545-dd73a31ea667}</Project>
+      <Name>Extension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

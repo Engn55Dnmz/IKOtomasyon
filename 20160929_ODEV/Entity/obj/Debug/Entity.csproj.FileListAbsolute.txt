@@ -1,0 +1,40 @@
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.dll.config
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.dll
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.pdb
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.dll
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.xml
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.dll
+C:\Users\nbuy_ogrenci\Documents\Visual Studio 2013\Projects\19-X-A\C#-DATA\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.pdb
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.dll.config
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.dll
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.pdb
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.dll
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.xml
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.dll
+C:\Users\Engin\Desktop\IK_Otomasyon\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.pdb
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.dll.config
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.dll
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.pdb
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.dll
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.xml
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.dll
+C:\Users\nbuy_ogrenci\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.pdb
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.dll.config
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.dll
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\Entity.pdb
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.dll
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.xml
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.dll
+C:\Users\Engin\Desktop\Projemiz\2016-09-29\20160929_ODEV\Entity\obj\Debug\Entity.pdb
